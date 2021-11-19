@@ -7,7 +7,7 @@ const typeDefs = gql`
     hello: String!
     randomNumber: Int!
     message : String!
-    shortDescription: String
+    shortDescription: String!
   }
 `;
 // the Query type outlines all the queries that can be called by the client
@@ -28,6 +28,9 @@ const resolvers = {
         const dt = new Date();
         const day = dt.getDay();
         return day
+    },
+    shortDescription : ()=>{
+      return "This is a sample decription from GraphQL"
     },
     // When we call the randomNumber query, it should return a number between 0 and 10
     randomNumber: () => Math.round(Math.random() * 10),
